@@ -19,9 +19,10 @@
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
-    <div id="content">{% block content %}{% endblock %}</div>
-    <div id="footer">
-      <button href="/startOver">Start over</button>
+    <div>
+      <h2>{% block quiz %}{% endblock %}</h2>
+      <p>{% block quizheader %}{% endblock %}</p>
     </div>
+    {% block content %}{% endblock %}
   </body>
 </html>
