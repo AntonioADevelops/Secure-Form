@@ -1,3 +1,6 @@
+body {
+    background-color: gainsboro;
+}
 #home {
     position: absolute;
     text-align: center;
