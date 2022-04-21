@@ -1,10 +1,10 @@
 body {
-    background-color: gainsboro;
+    background-color: whitesmoke;
 }
 #home {
     position: absolute;
     text-align: center;
-    font-size: 4vmin;
+    font-size: calc(12px + 1.5vw);
     top: 40%;
     left: 50%;
     margin-right: -50%;
@@ -12,5 +12,27 @@ body {
 }
 
 #surveystart {
-    font-size: 3.5vmin;
+    font-size: calc(12px + 1vw);
+}
+
+#title {
+    margin-right: auto;
+    margin-left: auto;
+    font-weight: 600;
+    background-color: rgb(241, 227, 206);
+    padding-top: 25px;
+    padding-bottom: 22px;
+    padding-left: 30%;
+    padding-right: 30%;
+    width: fit-content;
+    block-size: fit-content;
+    text-align: center;
+    margin-top: 2.5%;
+    font-size: calc(12px + 1.5vw);
+    border-bottom: 3px solid rgb(228, 206, 178);
+}
+
+#subtitle {
+    font-weight: 325;
+    font-size: calc(12px + 0.5vw);
 }
