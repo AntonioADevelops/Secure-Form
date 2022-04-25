@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %} Geography {% endblock %}
+
+{% block quiz %} Geography Quiz {% endblock  %}
+
+{% block quizheader %} Test your geography! {% endblock  %}
+
+{% block content %}
+
+<div class="geography">
+  <form action="/math" method="POST">
+    <p>Which of the following continents is smaller than Europe?</p>
+    <input type="radio" id="asia" name="asia">
+    <label for="asia">Asia</label><br>
+    <input type="radio" id="namerica" name="namerica">
+    <label for="namerica">North America</label><br>
+    <input type="radio" id="australia" name="australia">
+    <label for="australia">Australia</label><br>
+    <input type="radio" id="africa" name="africa">
+    <label for="africa">Africa</label><br>
+  
+    <br>
+  
+    <p>Which of the following mountains holds the title of "World's Tallest"?</p>
+    <input type="radio" id="everest" name="everest">
+    <label for="everest">Mt. Everest</label><br>
+    <input type="radio" id="fuji" name="fuji">
+    <label for="fuji">Mt. Fuji</label><br>
+    <input type="radio" id="kilimanjaro" name="kilimanjaro">
+    <label for="kilimanjaro">Mt. Kilimanjaro</label><br>
+    <input type="radio" id="mtkenya" name="mtkenya">
+    <label for="mtkenya">Mt. Kenya</label><br>
+
+    <br>
+
+    <p>Which of the following countries has the greatest population</p>
+    <input type="radio" id="us" name="us">
+    <label for="us">United States</label><br>
+    <input type="radio" id="russia" name="russia">
+    <label for="russia">Russia</label><br>
+    <input type="radio" id="india" name="india">
+    <label for="india">India</label><br>
+    <input type="radio" id="china" name="china">
+    <label for="china">China</label><br>
+
+    <br>
+
+    <p>Which of following states is the captial of America?</p>
+    <input type="radio" id="california" name="california">
+    <label for="california">California</label><br>
+    <input type="radio" id="washington" name="washington">
+    <label for="washington">Washington D.C.</label><br>
+    <input type="radio" id="arizona" name="arizona">
+    <label for="arizona">Arizona</label><br>
+    <input type="radio" id="texas" name="texas">
+    <label for="texas">Texas</label><br>
+    <button type="submit" value="submit">submit</button>
+  </form>
+</div>
+
+{% endblock %}

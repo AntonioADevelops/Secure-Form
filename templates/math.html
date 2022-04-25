@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %} Math {% endblock %}
+
+{% block quiz %} Math Quiz {% endblock  %}
+
+{% block quizheader %} Test your math! {% endblock  %}
+
+{% block content %}
+
+<div class="math">
+  <form action="/history" method="POST">
+    <p>What is 1 + 1?</p>
+    <input type="radio" id="ans2" name="ans2">
+    <label for="ans2">2</label><br>
+    <input type="radio" id="ans8" name="ans8">
+    <label for="ans8">8</label><br>
+    <input type="radio" id="ans4" name="ans4">
+    <label for="ans4">4</label><br>
+    <input type="radio" id="ans7" name="ans7">
+    <label for="ans7">7</label><br>
+  
+    <br>
+  
+    <p>What is the Quadratic Formula?</p>
+    <input type="radio" id="quad" name="quad">
+    <label for="quad">ax^2 + bx + c</label><br>
+    <input type="radio" id="slope" name="slope">
+    <label for="slope">y = mx + b</label><br>
+    <input type="radio" id="pyth" name="pyth">
+    <label for="pyth">a^2 + b^2 = c^2</label><br>
+    <input type="radio" id="pi" name="pi">
+    <label for="pi">πr^2</label><br>
+
+    <br>
+
+    <p>Which of the following countries has the greatest population</p>
+    <input type="radio" id="asia" name="asia">
+    <label for="asia">Asia</label><br>
+    <input type="radio" id="asia" name="asia">
+    <label for="asia">Asia</label><br>
+    <input type="radio" id="asia" name="asia">
+    <label for="asia">Asia</label><br>
+    <input type="radio" id="asia" name="asia">
+    <label for="asia">Asia</label><br>
+
+    <br>
+
+    <p>Which of following states is the captial of America?</p>
+    <input type="radio" id="asia" name="asia">
+    <label for="asia">Asia</label><br>
+    <input type="radio" id="asia" name="asia">
+    <label for="asia">Asia</label><br>
+    <input type="radio" id="asia" name="asia">
+    <label for="asia">Asia</label><br>
+    <input type="radio" id="asia" name="asia">
+    <label for="asia">Asia</label><br>
+    <button type="submit" value="submit">submit</button>
+  </form>
+</div>
+
+{% endblock %}

@@ -14,15 +14,19 @@ body {
     transform: translate(-50%, -50%);
 }
 
+/* Start Survey Button */
 #surveystart {
     font-size: calc(12px + 1vw);
     background-color: rgb(106, 173, 110);
+    border: none;
 }
 
+/* Places Modal more in the middle */
 #myModal {
     top: 20%
 }
 
+/* Enter Name buttons */
 #submitUInfo {
     display: block;
     margin-left: auto;
@@ -52,7 +56,6 @@ body {
     padding-left: 25%;
     padding-right: 25%;
     width: fit-content;
-    block-size: fit-content;
     margin-top: 2.5%;
     font-size: calc(12px + 1.5vw);
     border-bottom: 3px solid rgb(214, 209, 202);
@@ -62,4 +65,15 @@ body {
 #subtitle {
     font-weight: 325;
     font-size: calc(12px + 0.5vw);
+}
+
+/* Geography Form */
+.geography {
+    font-size: 1em;
+    text-align: left;
+    justify-content: left;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
 }
