@@ -1,57 +1,69 @@
 {% extends "layout.html" %}
 
-{% block title %} About {% endblock %}
+{% block title %} World History {% endblock %}
+
+{% block quiz %} World History Quiz {% endblock  %}
+
+{% block quizheader %} Test your world history! {% endblock  %}
 
 {% block content %}
 
-<div class="history">
+<div class="quizcss">
   <form action="/results" method="POST">
-    <p>Which of the following continents is smaller than Europe?</p>
-    <input type="radio" id="asia" name="asia">
-    <label for="asia">Asia</label><br>
-    <input type="radio" id="asia" name="asia">
-    <label for="asia">Asia</label><br>
-    <input type="radio" id="asia" name="asia">
-    <label for="asia">Asia</label><br>
-    <input type="radio" id="asia" name="asia">
-    <label for="asia">Asia</label><br>
+    <p>When did the construction of the Great Wall of China begin?</p>
+    <!-- Answer -->
+    <input type="radio" id="7thBC" name="wallchina" required>
+    <label for="7thBC">7th Century BC</label><br>
+    <!-- Answer -->
+    <input type="radio" id="8thBC" name="wallchina">
+    <label for="8thBC">8th Century BC</label><br>
+    <input type="radio" id="7thAD" name="wallchina">
+    <label for="7thAD">7th Century AD</label><br>
+    <input type="radio" id="1stBC" name="wallchina">
+    <label for="1stBC">1st Century BC</label><br>
   
     <br>
   
-    <p>Which of the following mountains holds the title of "World's Tallest"?</p>
-    <input type="radio" id="asia" name="asia">
-    <label for="asia">Asia</label><br>
-    <input type="radio" id="asia" name="asia">
-    <label for="asia">Asia</label><br>
-    <input type="radio" id="asia" name="asia">
-    <label for="asia">Asia</label><br>
-    <input type="radio" id="asia" name="asia">
-    <label for="asia">Asia</label><br>
+    <p>During which war was a Christmas Truce called?</p>
+    <input type="radio" id="ww2" name="xmastruce" required>
+    <label for="ww2">World War 2</label><br>
+    <input type="radio" id="napoleon" name="xmastruce">
+    <label for="napoleon">Napoleonic Wars</label><br>
+    <input type="radio" id="americarev" name="xmastruce">
+    <label for="americarev">American Revolutionary War</label><br>
+    <!-- Answer -->
+    <input type="radio" id="ww1" name="xmastruce">
+    <label for="ww1">World War 1</label><br>
+    <!-- Answer -->
 
     <br>
 
-    <p>Which of the following countries has the greatest population</p>
-    <input type="radio" id="asia" name="asia">
-    <label for="asia">Asia</label><br>
-    <input type="radio" id="asia" name="asia">
-    <label for="asia">Asia</label><br>
-    <input type="radio" id="asia" name="asia">
-    <label for="asia">Asia</label><br>
-    <input type="radio" id="asia" name="asia">
-    <label for="asia">Asia</label><br>
+    <p>In what year is the Bubonic Plague believed to have started in Europe and Asia?</p>
+    <input type="radio" id="yr1346" name="plaguestart" required>
+    <label for="yr1346">1346</label><br>
+    <input type="radio" id="yr1560" name="plaguestart">
+    <label for="yr1560">1560</label><br>
+    <!-- Answer -->
+    <input type="radio" id="yr1364" name="plaguestart">
+    <label for="yr1364">1364</label><br>
+    <!-- Answer -->
+    <input type="radio" id="yr864" name="plaguestart">
+    <label for="yr864">864</label><br>
 
     <br>
 
-    <p>Which of following states is the captial of America?</p>
-    <input type="radio" id="asia" name="asia">
-    <label for="asia">Asia</label><br>
-    <input type="radio" id="asia" name="asia">
-    <label for="asia">Asia</label><br>
-    <input type="radio" id="asia" name="asia">
-    <label for="asia">Asia</label><br>
-    <input type="radio" id="asia" name="asia">
-    <label for="asia">Asia</label><br>
-    <button type="submit" value="submit">submit</button>
+    <p>When did the roman empire fall?</p>
+    <input type="radio" id="asia" name="romanfall" required>
+    <label for="asia">842 BC</label><br>
+    <input type="radio" id="asia" name="romanfall">
+    <label for="asia">464 AD</label><br>
+    <input type="radio" id="asia" name="romanfall">
+    <!-- Answer -->
+    <label for="asia">395 AD</label><br>
+    <input type="radio" id="asia" name="romanfall">
+    <!-- Answer -->
+    <label for="asia">226 BC</label><br>
+    <button type="submit" value="submit">Submit</button>
   </form>
 </div>
 

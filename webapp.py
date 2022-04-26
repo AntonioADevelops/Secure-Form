@@ -1,6 +1,8 @@
+from distutils.log import error
 from flask import Flask, url_for, render_template, request
 from flask import redirect
 from flask import session
+from flask import flash
 
 app = Flask(__name__)
 
@@ -8,23 +10,39 @@ app = Flask(__name__)
 def render_home():
     return render_template("home.html")
 
-@app.route("/geography")
+@app.route("/geography", methods=['GET', 'POST'])
 def render_geography():
-    return render_template("geography.html")
+    if request.method == 'POST':
+        return render_template("geography.html")
+    else:
+        flash("Refreshing the page leads to an incomplete result, please press the restard button to restart the quiz")
+        return redirect("/")
 
-@app.route("/math")
+@app.route("/math", methods=['GET', 'POST'])
 def render_math():
-    return render_template("math.html")
-
-@app.route("/math")
+    if request.method == 'POST':
+        return render_template("math.html")
+    else:
+        flash("Refreshing the page leads to an incomplete result, please press the restard button to restart the quiz")
+        return redirect("/")
+    
+@app.route("/history", methods=['GET', 'POST'])
 def render_history():
-    return render_template("history.html")
+    if request.method == 'POST':
+        return render_template("history.html")
+    else:
+        flash("Refreshing the page leads to an incomplete result, please press the restard button to restart the quiz")
+        return redirect("/")
 
-@app.route("/complete")
+@app.route("/results", methods=['GET', 'POST'])
 def render_results():
-    return render_template("results.html")
+    if request.method == 'POST':
+        return render_template("results.html")
+    else:
+        flash("Refreshing the page leads to an incomplete result, please press the restard button to restart the quiz")
+        return redirect("/")
 
-@app.route("/startover")
+@app.route("/startover", methods=['GET', 'POST'])
 def render_restart():
     # session.clear()
     return redirect("/")

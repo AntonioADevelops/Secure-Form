@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %} Results {% endblock %}
+
+{% block quiz %} Results {% endblock  %}
+
+{% block quizheader %} See how well you did! {% endblock  %}
+
+{% block content %}
+
+<div id="name">
+  <p id="uFname">{{ uFname }}</p>
+  <p id="uLname">{{ uLname }}</p>
+</div>
+<div class="score">
+  <p id="uGeography">{{ uGeography }}</p>
+  <p id="uMath">{{ uMath }}</p>
+  <p id="uHistory">{{ uHistory }}</p>
+</div>
+
+{% endblock %}
