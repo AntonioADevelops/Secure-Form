@@ -21,41 +21,86 @@ def render_geography():
 
 @app.route("/math", methods=['GET', 'POST'])
 def render_math():
+    session['g_answer1'] = request.form['smallercont']
+    session['g_answer2'] = request.form['tallestmt']
+    session['g_answer3'] = request.form['greatestpop']
+    session['g_answer4'] = request.form['capitalstate']
+    g_correct = 0
+    g_score = ""
+
+    
     return render_template("math.html")
 
 @app.route("/history", methods=['GET', 'POST'])
 def render_history():
+    session['g_answer1'] = request.form['easy']
+    session['g_answer1'] = request.form['quad']
+    session['g_answer1'] = request.form['prime']
+    session['g_answer1'] = request.form['sqandcb']
+    m_correct = 0
+    m_score = ""
+    
     return render_template("history.html")
 
+
 @app.route("/results", methods=['GET', 'POST'])
-def render_results():
-    g_correct = 'Australia'
-    g_correct = 'Mt. Everest'
-    g_correct = 'China'
-    g_correct = 'Washington D.C.'
-    m_correct = '2'
-    m_correct = 'ax^2 + bx + c'
-    m_correct = '67'
-    m_correct = '64'
-    h_correct = '7th Century BC'
-    h_correct = 'Australia'
-    h_correct = 'Australia'
-    h_correct = 'Australia'
-    g_answ1 = request.forms['smallercont']
-    g_answ2 = request.forms['tallestmt']
-    g_answ3 = request.forms['greatestpop']
-    g_answ4 = request.forms['capitalstate']
-    m_answ1 = request.forms['easy']
-    m_answ2 = request.forms['quad']
-    m_answ3 = request.forms['prime']
-    m_answ4 = request.forms['sqandcb']
-    h_answ1 = request.forms['wallchina']
-    h_answ2 = request.forms['xmastruce']
-    h_answ3 = request.forms['plaguestart']
-    h_answ4 = request.forms['romanfall']
+def render_results(): 
+    g_correct1 = 'Australia'
+    g_correct2 = 'Mt. Everest'
+    g_correct3 = 'China'
+    g_correct4 = 'Washington D.C.'
+    m_correct1 = '2'
+    m_correct2 = 'ax^2 + bx + c'
+    m_correct3 = '67'
+    m_correct4 = '64'
+    h_correct1 = '7th Century BC'
+    h_correct2 = 'Australia'
+    h_correct3 = 'Australia'
+    h_correct4 = 'Australia'
+    h_answ1 = request.form['wallchina']
+    h_answ2 = request.form['xmastruce']
+    h_answ3 = request.form['plaguestart']
+    h_answ4 = request.form['romanfall']
+    fname = request.form['fname']
+    lname = request.form['lname'] 
+    h_correct = 0
+    h_score = ""
+    total="/4"
     
+    if g_answ1 == g_correct1:
+        g_correct = g_correct+1
+    if g_answ2 == g_correct2:
+        g_correct = g_correct+1
+    if g_answ3 == g_correct3:
+        g_correct = g_correct+1
+    if g_answ4 == g_correct4:
+        g_correct = g_correct+1
+    g_score = g_correct + total
+    if m_answ1 == m_correct1:
+        m_correct = m_correct+1
+    if m_answ2 == m_correct2:
+        m_correct = m_correct+1
+    if m_answ3 == m_correct3:
+        m_correct = m_correct+1
+    if m_answ4 == m_correct4:
+        m_correct = m_correct+1
+    m_score = m_correct + total
+    if h_answ1 == h_correct1:
+        h_correct = h_correct+1
+    if h_answ2 == h_correct2:
+        h_correct = h_correct+1
+    if h_answ3 == h_correct3:
+        h_correct = h_correct+1
+    if h_answ4 == h_correct4:
+        h_correct = h_correct+1
+    h_score = h_correct + total
     
-    return render_template("results.html")
+    if request.method == "POST":
+        return render_template("results.html", uFname=fname, uLname=lname, uGeography=g_score, uMath=m_score, uHistory=h_score)
+    else:
+        session.clear()
+        return redirect("/")
+    
 
 @app.route("/startover", methods=['GET', 'POST'])
 def render_restart():
@@ -63,4 +108,4 @@ def render_restart():
     return redirect("/")
 
 if __name__=="__main__":
-    app.run(debug=False)
+    app.run(debug=True)
