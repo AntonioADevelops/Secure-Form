@@ -69,8 +69,8 @@ def render_results():
     h_correct4 = '395 AD'
     
     
-    userFirstName = session.get('fname')
-    userLastName = session.get('lname')
+    userFirstName = session.get('fname')#, request.form['fname'])
+    userLastName = session.get('lname')#, request.form['lname'])
     
     # Used for Displaying Score
     g_correct = 0
