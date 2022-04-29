@@ -70,7 +70,7 @@ def render_results():
     
     
     userFirstName = session.get('fname')
-    userLastName =session.get('lname')
+    userLastName = session.get('lname')
     
     # Used for Displaying Score
     g_correct = 0
