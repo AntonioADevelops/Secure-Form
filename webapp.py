@@ -7,12 +7,16 @@ app = Flask(__name__)
 
 app.secret_key = os.environ["SECRET_KEY"]
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def render_home():
     return render_template("home.html")
 
 @app.route("/geography", methods=['GET', 'POST'])
 def render_geography():
+    # User's First and Last Name
+    session['userFname'] = request.form['fname']
+    session['userLname'] = request.form['lname'] 
+    
     if request.method == "POST":
         return render_template("geography.html")
     else:
@@ -21,30 +25,36 @@ def render_geography():
 
 @app.route("/math", methods=['GET', 'POST'])
 def render_math():
+    
+    # User Answers Geography
     session['g_answer1'] = request.form['smallercont']
     session['g_answer2'] = request.form['tallestmt']
     session['g_answer3'] = request.form['greatestpop']
     session['g_answer4'] = request.form['capitalstate']
-    g_correct = 0
-    g_score = ""
 
     
     return render_template("math.html")
 
 @app.route("/history", methods=['GET', 'POST'])
 def render_history():
-    session['g_answer1'] = request.form['easy']
-    session['g_answer1'] = request.form['quad']
-    session['g_answer1'] = request.form['prime']
-    session['g_answer1'] = request.form['sqandcb']
-    m_correct = 0
-    m_score = ""
+    # User Answers Math
+    session['m_answer1'] = request.form['easy']
+    session['m_answer2'] = request.form['quad']
+    session['m_answer3'] = request.form['prime']
+    session['m_answer4'] = request.form['sqandcb']
     
     return render_template("history.html")
 
 
 @app.route("/results", methods=['GET', 'POST'])
-def render_results(): 
+def render_results():    
+    # User Answers History
+    session['h_answer1'] = request.form['wallchina']
+    session['h_answer2'] = request.form['xmastruce']
+    session['h_answer3'] = request.form['plaguestart']
+    session['h_answer4'] = request.form['romanfall']
+    
+    # Answer Key
     g_correct1 = 'Australia'
     g_correct2 = 'Mt. Everest'
     g_correct3 = 'China'
@@ -54,49 +64,59 @@ def render_results():
     m_correct3 = '67'
     m_correct4 = '64'
     h_correct1 = '7th Century BC'
-    h_correct2 = 'Australia'
-    h_correct3 = 'Australia'
-    h_correct4 = 'Australia'
-    h_answ1 = request.form['wallchina']
-    h_answ2 = request.form['xmastruce']
-    h_answ3 = request.form['plaguestart']
-    h_answ4 = request.form['romanfall']
-    fname = request.form['fname']
-    lname = request.form['lname'] 
+    h_correct2 = 'World War 1'
+    h_correct3 = '1364'
+    h_correct4 = '395 AD'
+    
+    
+    userFirstName = session.get('fname')
+    userLastName =session.get('lname')
+    
+    # Used for Displaying Score
+    g_correct = 0
+    g_score = ""
+    m_correct = 0
+    m_score = ""
     h_correct = 0
     h_score = ""
+    
     total="/4"
+    # Determine Geography Score
+    if g_correct1 in session["g_answer1"]:
+        g_correct = g_correct + 1
+    if g_correct2 in session["g_answer2"]:
+        g_correct = g_correct + 1
+    if g_correct3 in session["g_answer3"]:
+        g_correct = g_correct + 1
+    if g_correct4 in session["g_answer4"]:
+        g_correct = g_correct + 1
+    g_score = str(g_correct) + total
     
-    if g_answ1 == g_correct1:
-        g_correct = g_correct+1
-    if g_answ2 == g_correct2:
-        g_correct = g_correct+1
-    if g_answ3 == g_correct3:
-        g_correct = g_correct+1
-    if g_answ4 == g_correct4:
-        g_correct = g_correct+1
-    g_score = g_correct + total
-    if m_answ1 == m_correct1:
-        m_correct = m_correct+1
-    if m_answ2 == m_correct2:
-        m_correct = m_correct+1
-    if m_answ3 == m_correct3:
-        m_correct = m_correct+1
-    if m_answ4 == m_correct4:
-        m_correct = m_correct+1
-    m_score = m_correct + total
-    if h_answ1 == h_correct1:
-        h_correct = h_correct+1
-    if h_answ2 == h_correct2:
-        h_correct = h_correct+1
-    if h_answ3 == h_correct3:
-        h_correct = h_correct+1
-    if h_answ4 == h_correct4:
-        h_correct = h_correct+1
-    h_score = h_correct + total
+    # Determine Math Score
+    if m_correct1 in session["m_answer1"]:
+        m_correct = m_correct + 1
+    if m_correct2 in session["m_answer2"]:
+        m_correct = m_correct + 1
+    if m_correct3 in session["m_answer3"]:
+        m_correct = m_correct + 1
+    if m_correct4 in session["m_answer4"]:
+        m_correct = m_correct + 1
+    m_score = str(m_correct) + total
     
+    # Determine History Score
+    if h_correct1 in session["h_answer1"]:
+        h_correct = h_correct + 1
+    if h_correct2 in session["h_answer2"]:
+        h_correct = h_correct + 1
+    if h_correct3 in session["h_answer3"]:
+        h_correct = h_correct + 1
+    if h_correct4 in session["h_answer4"]:
+        h_correct = h_correct + 1
+    h_score = str(h_correct) + total
+    
+    # Check request method.
     if request.method == "POST":
-        return render_template("results.html", uFname=fname, uLname=lname, uGeography=g_score, uMath=m_score, uHistory=h_score)
+        return render_template("results.html", uFname=userFirstName, uLname=userLastName, uGeography=g_score, uMath=m_score, uHistory=h_score)
     else:
         session.clear()
         return redirect("/")
