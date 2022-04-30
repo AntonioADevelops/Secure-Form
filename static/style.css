@@ -71,6 +71,8 @@ body {
 .quizcss {
     font-size: calc(12px + 0.5vw);
 }
+
+/* Align Questions */
 .questions {
     text-align: left;
     justify-content: left;
@@ -80,6 +82,12 @@ body {
     width: fit-content;
 }
 
+/* Tell User You Can Click */
 .showclick:hover {
     cursor: pointer;
+}
+
+/* align retake quiz button center. */
+#retake {
+    text-align: center;
 }
