@@ -68,10 +68,6 @@ def render_results():
     h_correct3 = '1364'
     h_correct4 = '395 AD'
     
-    
-    userFirstName = session.get('fname')#, request.form['fname'])
-    userLastName = session.get('lname')#, request.form['lname'])
-    
     # Used for Displaying Score
     g_correct = 0
     g_score = ""
@@ -116,7 +112,7 @@ def render_results():
     
     # Check request method.
     if request.method == "POST":
-        return render_template("results.html", uFname=userFirstName, uLname=userLastName, uGeography=g_score, uMath=m_score, uHistory=h_score)
+        return render_template("results.html", uFname=session['userFname'], uLname=session['userLname'], uGeography=g_score, uMath=m_score, uHistory=h_score)
     else:
         session.clear()
         return redirect("/")
